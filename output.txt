@@ -1,0 +1,145 @@
+
+====================================== Modelagem =======================================
+Max Z = 30 x1 + 12 x2 + 15 x3
+9 x1 + 3 x2 + 5 x3 <= 500 
+5 x1 + 4 x2 + 0 x3 <= 350 
+3 x1 + 0 x2 + 2 x3 <= 150 
+0 x1 + 0 x2 + 1 x3 <= 20 
+sendo x1 x2 x3 >= 0
+
+=================================== Tableau Inicial ====================================
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+     x1         x2         x3         x4         x5         x6         x7         R
+     9          3          5          1          0          0          0          500   
+   
+     5          4          0          0          1          0          0          350   
+   
+     3          0          2          0          0          1          0          150   
+   
+     0          0          1          0          0          0          1          20    
+   
+Z =  -30        -12        -15        0          0          0          0          0     
+   
+========================================================================================
+---> Iteração 1
+Coluna pivot: 1ª
+Linha pivot: 3ª
+Elemento pivotante: 3
+
+Nova linha pivot:    1       0      2/3      0       0      1/3      0       50   
+
+Linha 1: (L3 x -9) + L1
+>Nova linha 1:    0       3       -1      1       0       -3      0       50   
+
+Linha 2: (L3 x -5) + L2
+>Nova linha 2:    0       4     -10/3     0       1      -5/3     0      100   
+
+Linha 5: (L3 x 30) + L5
+>Nova linha 5:    0      -12      5       0       0       10      0      1500  
+
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+     x1         x2         x3         x4         x5         x6         x7         R
+     0          3          -1         1          0          -3         0          50    
+   
+     0          4          -10/3      0          1          -5/3       0          100   
+   
+     1          0          2/3        0          0          1/3        0          50    
+   
+     0          0          1          0          0          0          1          20    
+   
+Z =  0          -12        5          0          0          10         0          1500  
+   
+========================================================================================
+---> Iteração 2
+Coluna pivot: 2ª
+Linha pivot: 1ª
+Elemento pivotante: 3
+
+Nova linha pivot:    0       1      -1/3    1/3      0       -1      0      50/3  
+
+Linha 2: (L1 x -4) + L2
+>Nova linha 2:    0       0       -2     -4/3     1      7/3      0     100/3  
+
+Linha 5: (L1 x 12) + L5
+>Nova linha 5:    0       0       1       4       0       -2      0      1700  
+
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+     x1         x2         x3         x4         x5         x6         x7         R
+     0          1          -1/3       1/3        0          -1         0          50/3  
+   
+     0          0          -2         -4/3       1          7/3        0          100/3 
+   
+     1          0          2/3        0          0          1/3        0          50    
+   
+     0          0          1          0          0          0          1          20    
+   
+Z =  0          0          1          4          0          -2         0          1700  
+   
+========================================================================================
+---> Iteração 3
+Coluna pivot: 6ª
+Linha pivot: 2ª
+Elemento pivotante: 7/3
+
+Nova linha pivot:    0       0      -6/7    -4/7    3/7      1       0     100/7  
+
+Linha 1: (L2 x 1) + L1
+>Nova linha 1:    0       1     -25/21  -5/21    3/7      0       0     650/21 
+
+Linha 3: (L2 x -1/3) + L3
+>Nova linha 3:    1       0     20/21    4/21    -1/7     0       0     950/21 
+
+Linha 5: (L2 x 2) + L5
+>Nova linha 5:    0       0      -5/7    20/7    6/7      0       0    12100/7 
+
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+     x1         x2         x3         x4         x5         x6         x7         R
+     0          1          -25/21     -5/21      3/7        0          0          650/21
+   
+     0          0          -6/7       -4/7       3/7        1          0          100/7 
+   
+     1          0          20/21      4/21       -1/7       0          0          950/21
+   
+     0          0          1          0          0          0          1          20    
+   
+Z =  0          0          -5/7       20/7       6/7        0          0          12100/7
+   
+========================================================================================
+---> Iteração 4
+Coluna pivot: 3ª
+Linha pivot: 4ª
+Elemento pivotante: 1
+
+Nova linha pivot:    0       0       1       0       0       0       1       20   
+
+Linha 1: (L4 x 25/21) + L1
+>Nova linha 1:    0       1       0     -5/21    3/7      0     25/21  1150/21 
+
+Linha 2: (L4 x 6/7) + L2
+>Nova linha 2:    0       0       0      -4/7    3/7      1      6/7    220/7  
+
+Linha 3: (L4 x -20/21) + L3
+>Nova linha 3:    1       0       0      4/21    -1/7     0     -20/21  550/21 
+
+Linha 5: (L4 x 5/7) + L5
+>Nova linha 5:    0       0       0      20/7    6/7      0      5/7   12200/7 
+
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+     x1         x2         x3         x4         x5         x6         x7         R
+     0          1          0          -5/21      3/7        0          25/21      1150/21
+   
+     0          0          0          -4/7       3/7        1          6/7        220/7 
+   
+     1          0          0          4/21       -1/7       0          -20/21     550/21
+   
+     0          0          1          0          0          0          1          20    
+   
+Z =  0          0          0          20/7       6/7        0          5/7        12200/7
+   
+========================================================================================
+Portanto,
+Z = 1742.8571
+x2 = 54.7619
+x6 = 31.4286
+x1 = 26.1905
+x3 = 20.0000
